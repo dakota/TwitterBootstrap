@@ -3,16 +3,40 @@ The TwitterBootstrap Plugin provides an easy-to-use feature Bootstrap in CakePHP
 
 [Bootstrap, from Twitter](http://twitter.github.com/bootstrap/)
 
-This v1.4.1 supports Bootstrap v2.1.0
+This v1.5.5 supports Bootstrap v2.2.2
 
 ##Installation
 ###This plugin
-Manual
 
-- Download this plugin: [Downloads · slywalker/TwitterBootstrap](https://github.com/slywalker/TwitterBootstrap/downloads)
-- Unzip that download.
-- Copy the resulting folder to `app/Plugin`
-- Rename the folder you just copied to `TwitterBootstrap`
+Composer
+
+	{
+	  "repositories": [
+	    {
+	      "type": "package",
+	      "package": {
+	        "name": "twitter/bootstrap",
+	        "version": "dev-master",
+	        "source": {
+	          "url": "git://github.com/twitter/bootstrap",
+	          "type": "git",
+	          "reference": "master"
+	        },
+	        "require": {
+	          "composer/installers": "*"
+	        }
+	      },
+	      "packagist": false
+	    }
+	  ],
+	  "require": {
+	    "twitter/bootstrap": "dev-master",
+	    "slywalker/twitter_bootstrap": "dev-master"
+	  },
+	  "config": {
+	    "vendor-dir": "Vendor"
+	  }
+	}
 
 Submodule
 
@@ -113,9 +137,9 @@ Output form input as Bootstrap format
 				'type' => 'select',
 				'multiple' => 'checkbox',
 				'options' => array(
-					'1' => 'Option one is this and that—be sure to include why it\'s great',
+					'1' => 'Option one is this and that¡ªbe sure to include why it\'s great',
 					'2' => 'Option two can also be checked and included in form results',
-					'3' => 'Option three can—yes, you guessed it—also be checked and included in form results',
+					'3' => 'Option three can¡ªyes, you guessed it¡ªalso be checked and included in form results',
 				),
 				'helpBlock' => '<strong>Note:</strong> Labels surround all the options for much larger click areas and a more usable form.',
 			)); ?>
@@ -123,7 +147,7 @@ Output form input as Bootstrap format
 				'label' => 'Radio buttons',
 				'type' => 'radio',
 				'options' => array(
-					'1' => 'Option one is this and that—be sure to include why it\'s great',
+					'1' => 'Option one is this and that¡ªbe sure to include why it\'s great',
 					'2' => 'Option two can is something else and selecting it will deselect option one',
 				),
 			)); ?>

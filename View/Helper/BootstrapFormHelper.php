@@ -183,6 +183,7 @@ class BootstrapFormHelper extends FormHelper {
 		unset($options['before']);
 
 		$div = $this->_extractOption('div', $options);
+		unset($options['div']);
 		$out = $before . $this->button($caption, $options) . $after;
 		return (false === $div) ? $out : $this->Html->div($div, $out);
 	}
@@ -350,9 +351,9 @@ class BootstrapFormHelper extends FormHelper {
 		foreach ($blocks as $block) {
 			$outBlock[] = $this->help($block, array('type' => 'block'));
 		}
-		$outBlock = implode("\n", $outBlock);
+		$outBlock = implode('', $outBlock);
 
-		$options['after'] = $outInline . "\n" . $outBlock . "\n" . $this->_extractOption('after', $options);
+		$options['after'] = $outInline . $outBlock . $this->_extractOption('after', $options);
 		return $options;
 	}
 
@@ -373,12 +374,14 @@ class BootstrapFormHelper extends FormHelper {
 		}
 		if ($this->error($fieldName)) {
 			$error = $this->_extractOption('error', $options, array());
-			$options['error'] = array_merge($error, array(
-				'attributes' => array(
-					'wrap' => 'span',
-					'class' => 'help-inline error-message',
-				),
-			));
+			if (false !== $error) {
+				$options['error'] = array_merge($error, array(
+					'attributes' => array(
+						'wrap' => 'span',
+						'class' => 'help-inline error-message',
+					),
+				));
+			}
 			if (false !== $div) {
 				$options = $this->addClass($options, self::CLASS_ERROR, 'div');
 			}
