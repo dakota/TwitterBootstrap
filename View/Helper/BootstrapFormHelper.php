@@ -51,7 +51,7 @@ class BootstrapFormHelper extends FormHelper {
 		} else {
 			$type = $this->_extractOption('type', $this->_Opts[$fieldName]);
 
-			$default = array('wrap' => 'span', 'class' => 'add-on');
+			$default = array('wrap' => 'span', 'class' => 'input-group-addon');
 			$divOptions = array();
 			foreach (array('prepend', 'append') as $addon) {
 				$$addon = null;
@@ -60,6 +60,7 @@ class BootstrapFormHelper extends FormHelper {
 					if (!is_array($option[0])) {
 						$option = array($option);
 					}
+					$buttons = '';
 					foreach ($option as $_option) {
 						array_push($_option, array());
 						list($text, $addonOptions) = $_option;
@@ -68,13 +69,27 @@ class BootstrapFormHelper extends FormHelper {
 						$wrap = $addonOptions['wrap'];
 						unset($addonOptions['wrap']);
 
+						if($wrap == 'button') {
+							$buttons .= $this->Html->tag($wrap, $text, $addonOptions);
+							continue;
+						}
+
 						$$addon .= $this->Html->tag($wrap, $text, $addonOptions);
 					}
 
+					if(!empty($buttons)) {
+						$wrap = 'div';
+						$addonOptions = array(
+							'class' => 'input-group-btn'
+						);
+
+						$$addon .= $this->Html->tag($wrap, $buttons, $addonOptions);
+					}
+
 					unset($options[$addon]);
-					$divOptions = $this->addClass($divOptions, 'input-' . $addon);
 				}
 			}
+			$divOptions = $this->addClass($divOptions, 'input-group');				
 			$out = $prepend . $this->{$type}($fieldName, $options) . $append;
 			return $this->Html->tag('div', $out, $divOptions);
 		}

@@ -4,7 +4,7 @@ App::uses('Inflector', 'Utility');
 
 class BootstrapHtmlHelper extends HtmlHelper {
 
-	const ICON_PREFIX = 'icon-';
+	const ICON_PREFIX = 'glyphicon-';
 
 	public function __construct(View $View, $settings = array()) {
 		parent::__construct($View, $settings);
@@ -24,7 +24,7 @@ class BootstrapHtmlHelper extends HtmlHelper {
 				unset($_class);
 			}
 		}
-		return '<i class="' . implode(' ', $class) . '"></i>';
+		return '<i class="glyphicon ' . implode(' ', $class) . '"></i>';
 	}
 
 	public function link($title, $url = null, $options = array(), $confirmMessage = false) {
@@ -87,11 +87,92 @@ class BootstrapHtmlHelper extends HtmlHelper {
 		$li = array();
 		for ($i = 0; $i < $count - 1; $i++) {
 			$text = $items[$i];
-			$text .= '&nbsp;<span class="divider">/</span>';
 			$li[] = parent::tag('li', $text);
 		}
 		$li[] = parent::tag('li', end($items), array('class' => 'active'));
 		return parent::tag('ul', implode("\n", $li), $options);
+	}
+
+	public function listGroup($items, $options = array()) {
+		$default = array(
+			'class' => 'list-group'
+		);
+		$options = array_merge($default, array($options));
+
+		$itemDefault = array(
+			'text' => '',
+			'description' => false,
+			'url' => false,
+			'chevron' => false,
+			'badge' => false,
+			'wrapperOptions' => array(),
+			'headerOptions' => array(),
+			'textOptions' => array(
+				'tag' => 'p'
+			)
+		);
+		$li = array();
+		$itemTag = 'li';
+		$wrapperTag = 'ul';
+		foreach($items as $item) {
+			if(!is_array($item)) {
+				$item = array(
+					'text' => $item
+				);
+			}
+
+			$item = array_merge($itemDefault, $item);
+
+			$item['wrapperOptions'] = $this->addClass($item['wrapperOptions'], 'list-group-item');
+			$item['headerOptions'] = $this->addClass($item['headerOptions'], 'list-group-item-heading');
+			$item['textOptions'] = $this->addClass($item['textOptions'], 'list-group-item-text');	
+
+			if(empty($item['text']) && !empty($item[0])) {
+				$item['text'] = $item[0];
+			}
+
+			if($item['url'] || $item['description']) {
+				$itemTag = 'a';
+				$wrapperTag = 'div';
+			}
+
+			if($item['url']) {
+				$item['wrapperOptions']['href'] = $this->url($item['url']);
+			}
+
+			if($item['chevron']) {
+				$item['text'] .= '<span class="glyphicon glyphicon-chevron-right"></span>';
+			}
+
+			if($item['badge']) {
+				if(is_array($item['badge'])) {
+					list($badge, $badgeOptions) = $item['badge'];
+					$badgeOptions['class'][] = 'badge';
+				}
+				else {
+					$badge = $item['badge'];
+					$badgeOptions = array('class' => array('badge'));
+				}
+
+				$item['text'] .= parent::tag('span', $badge, $badgeOptions);
+			}
+
+			if($item['description']) {
+				$itemText = parent::tag('h4', $item['text'], $item['headerOptions']);
+				$itemText .= parent::tag($item['textOptions']['tag'], $item['description'], $item['textOptions']);
+			}
+			else {
+				$itemText = $item['text'];
+			}
+
+			$li[] = array($itemText, $item['wrapperOptions']);
+		}
+
+		foreach($li as &$liItem) {
+			$liItem = parent::tag($itemTag, $liItem[0], $liItem[1]);
+		}
+
+		return parent::tag($wrapperTag, implode("\n", $li), $options);
 	}
 
 }

@@ -62,9 +62,9 @@ class BootstrapFormHelperTest extends CakeTestCase {
  */
 	public function testInput() {
 		$form = $this->BootstrapForm->input('foo');
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><input name="data[foo]" type="text" id="foo">' .
-			'</div></div>';
+			'</div>';
 		$this->assertSame($expected, $form);
 	}
 
@@ -75,19 +75,19 @@ class BootstrapFormHelperTest extends CakeTestCase {
  */
 	public function testInputHelpInline() {
 		$form = $this->BootstrapForm->input('foo', array('helpInline' => 'help inline text'));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><input name="data[foo]" type="text" id="foo">' .
-			'<span class="help-inline">help inline text</span></div></div>';
+			'<span class="help-inline">help inline text</span></div>';
 		$this->assertSame($expected, $form);
 
 		$form = $this->BootstrapForm->input('foo', array('helpInline' => array(
 			'help inline 1',
 			'help inline 2'
 		)));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><input name="data[foo]" type="text" id="foo">' .
 			'<span class="help-inline">help inline 1</span> ' .
-			'<span class="help-inline">help inline 2</span></div></div>';
+			'<span class="help-inline">help inline 2</span></div>';
 		$this->assertSame($expected, $form);
 	}
 
@@ -98,19 +98,19 @@ class BootstrapFormHelperTest extends CakeTestCase {
  */
 	public function testInputHelpBlock() {
 		$form = $this->BootstrapForm->input('foo', array('helpBlock' => 'help block text'));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><input name="data[foo]" type="text" id="foo">' .
-			'<p class="help-block">help block text</p></div></div>';
+			'<p class="help-block">help block text</p></div>';
 		$this->assertSame($expected, $form);
 
 		$form = $this->BootstrapForm->input('foo', array('helpBlock' => array(
 			'help block 1',
 			'help block 2'
 		)));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><input name="data[foo]" type="text" id="foo">' .
 			'<p class="help-block">help block 1</p>' .
-			'<p class="help-block">help block 2</p></div></div>';
+			'<p class="help-block">help block 2</p></div>';
 		$this->assertSame($expected, $form);
 	}
 
@@ -121,9 +121,9 @@ class BootstrapFormHelperTest extends CakeTestCase {
  */
 	public function testInputCheckbox() {
 		$form = $this->BootstrapForm->input('foo', array('type' => 'checkbox', 'label' => 'Foo'));
-		$expected = '<div><input type="hidden" name="data[foo]" id="foo_" value="0">' .
+		$expected = '<input type="hidden" name="data[foo]" id="foo_" value="0">' .
 			'<div class="controls"><label for="foo" class="checkbox">' .
-			'<input type="checkbox" name="data[foo]" value="1" id="foo">Foo</label></div></div>';
+			'<input type="checkbox" name="data[foo]" value="1" id="foo">Foo</label></div>';
 		$this->assertSame($expected, $form);
 	}
 
@@ -138,12 +138,12 @@ class BootstrapFormHelperTest extends CakeTestCase {
 			'label' => 'Foo',
 			'options' => array(1 => 'One', 2 => 'Two', 3 => 'Three')
 		));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<input type="hidden" name="data[foo]" id="foo_" value=""><div class="controls">' .
 			'<label class="radio"><input type="radio" name="data[foo]" id="Foo1" value="1">One</label>' . "\n" .
 			'<label class="radio"><input type="radio" name="data[foo]" id="Foo2" value="2">Two</label>' . "\n" .
 			'<label class="radio"><input type="radio" name="data[foo]" id="Foo3" value="3">Three</label>' .
-			'</div></div>';
+			'</div>';
 		$this->assertSame($expected, $form);
 	}
 
@@ -158,13 +158,44 @@ class BootstrapFormHelperTest extends CakeTestCase {
 			'label' => 'Foo',
 			'options' => array(1 => 'One', 2 => 'Two', 3 => 'Three')
 		));
-		$expected = '<div><label for="foo" class="control-label">Foo</label>' .
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
 			'<div class="controls"><select name="data[foo]"  id="foo">' . "\n" .
 			'<option value="1">One</option>' . "\n" .
 			'<option value="2">Two</option>' . "\n" .
 			'<option value="3">Three</option>' . "\n" .
-			'</select></div></div>';
+			'</select></div>';
 		$this->assertSame($expected, $form);
+	}
+
+/**
+ * testInputAddOns
+ *
+ * @return void
+ */
+	public function testInputAddOns() {
+		$form = $this->BootstrapForm->input('foo', array('prepend' => '@'));
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
+			'<div class="controls"><div class="input-group"><span class="input-group-addon">@</span><input name="data[foo]" type="text" id="foo">' .
+			'</div></div>';
+		$this->assertSame($expected, $form);
+
+		$form = $this->BootstrapForm->input('foo', array('append' => '@'));
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
+			'<div class="controls"><div class="input-group"><input name="data[foo]" type="text" id="foo">' .
+			'<span class="input-group-addon">@</span></div></div>';
+		$this->assertSame($expected, $form);
+
+		$form = $this->BootstrapForm->input('foo', array('prepend' => '@', 'append' => '@'));
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
+			'<div class="controls"><div class="input-group"><span class="input-group-addon">@</span><input name="data[foo]" type="text" id="foo">' .
+			'<span class="input-group-addon">@</span></div></div>';
+		$this->assertSame($expected, $form);
+
+		$form = $this->BootstrapForm->input('foo', array('append' => array(array('Go!', array('wrap' => 'button', 'class' => 'btn')))));
+		$expected = '<label for="foo" class="control-label">Foo</label>' .
+			'<div class="controls"><div class="input-group"><input name="data[foo]" type="text" id="foo">' .
+			'<div class="input-group-btn"><button class="btn">Go!</button></div></div></div>';
+		$this->assertSame($expected, $form);		
 	}
 
 }

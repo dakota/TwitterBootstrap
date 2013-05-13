@@ -14,16 +14,11 @@
 
 	<h2>Example forms <small>using just form controls, no extra markup</small></h2>
 	<div class="row">
-		<div class="span3">
-			<h3>Basic form</h3>
-			<p>With v2.0, we have lighter and smarter defaults for form styles. No extra markup, just form controls.</p>
-		</div>
-		<div class="span9">
-
+		<div class="col col-lg-12">
 			<h3>Original</h3>
 			<form class="well">
 				<label>Label name</label>
-				<input type="text" class="span3" placeholder="Type something…"> <span class="help-inline">Associated help text!</span>
+				<input type="text" placeholder="Type something…"> <span class="help-inline">Associated help text!</span>
 				<p class="help-block">Example block-level help text here.</p>
 				<label class="checkbox">
 					<input type="checkbox"> Check me out
@@ -36,7 +31,7 @@
 				<?php echo $this->Form->input(uniqid(), array(
 					'label' => 'Label name',
 					'type' => 'text',
-					'class' => 'span3',
+					'class' => 'col col-lg-3',
 					'placeholder' => 'Type something…',
 					'helpInline' => 'Associated help text!',
 					'helpBlock' => 'Example block-level help text here.',
@@ -54,45 +49,21 @@
 				<?php echo $this->Form->submit('Submit', array('icon' => 'pencil')); ?>
 			<?php echo $this->Form->end(); ?>
 
-			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"well"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;label&gt;</span><span class="pln">Label name</span><span class="tag">&lt;/label&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"span3"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Type something…"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-inline"</span><span class="tag">&gt;</span><span class="pln">Associated help text!</span><span class="tag">&lt;/span&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span><span class="pln"> Check me out</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"well"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;label&gt;</span><span class="pln">Label name</span><span class="tag">&lt;/label&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"col col-lg-3"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Type something…"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-inline"</span><span class="tag">&gt;</span><span class="pln">Associated help text!</span><span class="tag">&lt;/span&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span><span class="pln"> Check me out</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
 		</div>
 	</div> <!-- /row -->
+
 	<div class="row">
-		<div class="span3">
-			<h3>Search form</h3>
-			<p>Reflecting default WebKit styles, just add <code>.form-search</code> for extra rounded search fields.</p>
-		</div>
-		<div class="span9">
-
-			<h3>Original</h3>
-			<form class="well form-search">
-				<input type="text" class="input-medium search-query">
-				<button type="submit" class="btn">Search</button>
-			</form>
-
-			<h3>BootstrapFormHelper</h3>
-			<?php echo $this->Form->create('Test', array('class' => 'well form-search')); ?>
-				<?php echo $this->Form->input(uniqid(), array(
-					'type' => 'text',
-					'class' => 'input-medium search-query',
-				)); ?>
-				<?php echo $this->Form->submit('Search'); ?>
-			<?php echo $this->Form->end(); ?>
-
-			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"well form-search"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-medium search-query"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Search</span><span class="tag">&lt;/button&gt;</span></li><li class="L3"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
-		</div>
-	</div> <!-- /row -->
-	<div class="row">
-		<div class="span3">
+		<div class="col col-lg-3">
 			<h3>Inline form</h3>
 			<p>Inputs are block level to start. For <code>.form-inline</code> and <code>.form-horizontal</code>, we use inline-block.</p>
 		</div>
-		<div class="span9">
+		<div class="col col-lg-9">
 
 			<h3>Original</h3>
 			<form class="well form-inline">
-				<input type="text" class="input-small" placeholder="Email">
-				<input type="password" class="input-small" placeholder="Password">
+				<input type="text" style="width: 180px;" placeholder="Email">
+				<input type="password" style="width: 180px;" placeholder="Password">
 				<label class="checkbox">
 					<input type="checkbox"> Remember me
 				</label>
@@ -103,12 +74,12 @@
 			<?php echo $this->Form->create('Test', array('class' => 'well form-inline')); ?>
 				<?php echo $this->Form->input(uniqid(), array(
 					'type' => 'text',
-					'class' => 'input-small',
+					'style' => 'width: 180px;',
 					'placeholder' => 'Email',
 				)); ?>
 				<?php echo $this->Form->input(uniqid(), array(
 					'type' => 'password',
-					'class' => 'input-small',
+					'style' => 'width: 180px;',
 					'placeholder' => 'Password',
 				)); ?>
 				<?php echo $this->Form->input(uniqid(), array(
@@ -118,7 +89,7 @@
 				<?php echo $this->Form->submit('Sign in'); ?>
 			<?php echo $this->Form->end(); ?>
 
-			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"well form-inline"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-small"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Email"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-small"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Password"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span><span class="pln"> Remember me</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/label&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Sign in</span><span class="tag">&lt;/button&gt;</span></li><li class="L7"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"well form-inline"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"width: 180px"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Email"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"width: 180px"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Password"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span><span class="pln"> Remember me</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/label&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Sign in</span><span class="tag">&lt;/button&gt;</span></li><li class="L7"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
 		</div>
 	</div><!-- /row -->
 
@@ -126,7 +97,7 @@
 
 	<h2>Horizontal forms</h2>
 	<div class="row">
-		<div class="span8">
+		<div class="col col-lg-8">
 			<form class="form-horizontal">
 				<fieldset>
 					<legend>Controls Bootstrap supports <small>Original</small></legend>
@@ -241,7 +212,7 @@
 			<p>Given the above example form layout, here's the markup associated with the first input and control group. The <code>.control-group</code>, <code>.control-label</code>, and <code>.controls</code> classes are all required for styling.</p>
 			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;fieldset&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;legend&gt;</span><span class="pln">Legend text</span><span class="tag">&lt;/legend&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"input01"</span><span class="tag">&gt;</span><span class="pln">Text input</span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-xlarge"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"input01"</span><span class="tag">&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;</span><span class="pln">Supporting help text</span><span class="tag">&lt;/p&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;/div&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/fieldset&gt;</span></li><li class="L1"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
 		</div>
-		<div class="span4">
+		<div class="col col-lg-4">
 			<h3>What's included</h3>
 			<p>Shown on the left are all the default form controls we support. Here's the bulleted list:</p>
 			<ul>
@@ -262,7 +233,7 @@
 	<br>
 
 	<div class="row">
-		<div class="span8">
+		<div class="col col-lg-8">
 			<form class="form-horizontal">
 				<fieldset>
 					<legend>Form control states <small>Original</small></legend>
@@ -396,7 +367,7 @@
 			<?php echo $this->Form->end(); ?>
 
 		</div>
-		<div class="span4">
+		<div class="col col-lg-4">
 			<h3>Redesigned browser states</h3>
 			<p>Bootstrap features styles for browser-supported focused and <code>disabled</code> states. We remove the default Webkit <code>outline</code> and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
 			<hr>
@@ -409,54 +380,54 @@
 	<br>
 
 	<div class="row">
-		<div class="span8">
+		<div class="col col-lg-8">
 			<form class="form-horizontal">
 				<fieldset>
 					<legend>Extending form controls <small>Original</small></legend>
 					<div class="control-group">
 						<label class="control-label">Form grid sizes</label>
 						<div class="controls docs-input-sizes">
-							<input class="span1" type="text" placeholder=".span1">
-							<input class="span2" type="text" placeholder=".span2">
-							<input class="span3" type="text" placeholder=".span3">
-							<select class="span1">
+							<input class="col col-lg-1" type="text" placeholder=".col col-lg-1">
+							<input class="col col-lg-2" type="text" placeholder=".col col-lg-2">
+							<input class="col col-lg-3" type="text" placeholder=".col col-lg-3">
+							<select class="col col-lg-1">
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 								<option>4</option>
 								<option>5</option>
 							</select>
-							<select class="span2">
+							<select class="col col-lg-2">
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 								<option>4</option>
 								<option>5</option>
 							</select>
-							<select class="span3">
+							<select class="col col-lg-3">
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 								<option>4</option>
 								<option>5</option>
 							</select>
-							<p class="help-block">Use the same <code>.span*</code> classes from the grid system for input sizes.</p>
+							<p class="help-block">Use the same <code>.col .col-lg-*</code> classes from the grid system for input sizes.</p>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">Alternate sizes</label>
 						<div class="controls docs-input-sizes">
-							<input class="input-mini" type="text" placeholder=".input-mini">
+							<input class="input-large" type="text" placeholder=".input-large">
+							<input type="text" placeholder="default size">
 							<input class="input-small" type="text" placeholder=".input-small">
-							<input class="input-medium" type="text" placeholder=".input-medium">
-							<p class="help-block">You may also use static classes that don't map to the grid, adapt to the responsive CSS styles, or account for varying types of controls (e.g., <code>input</code> vs. <code>select</code>).</p>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="prependedInput">Prepended text</label>
 						<div class="controls">
-							<div class="input-prepend">
-								<span class="add-on">@</span><input class="span2" id="prependedInput" size="16" type="text">
+							<div class="input-group">
+								<span class="input-group-addon">@</span>
+								<input class="col col-lg-2" id="prependedInput" size="16" type="text">
 							</div>
 							<p class="help-block">Here's some help text</p>
 						</div>
@@ -464,8 +435,9 @@
 					<div class="control-group">
 						<label class="control-label" for="appendedInput">Appended text</label>
 						<div class="controls">
-							<div class="input-append">
-								<input class="span2" id="appendedInput" size="16" type="text"><span class="add-on">.00</span>
+							<div class="input-group">
+								<input class="col col-lg-2" id="appendedInput" size="16" type="text">
+								<span class="input-group-addon">.00</span>
 							</div>
 							<span class="help-inline">Here's more help text</span>
 						</div>
@@ -473,37 +445,45 @@
 					<div class="control-group">
 						<label class="control-label" for="appendedPrependedInput">Append and prepend</label>
 						<div class="controls">
-							<div class="input-prepend input-append">
-								<span class="add-on">$</span><input class="span2" id="appendedPrependedInput" size="16" type="text"><span class="add-on">.00</span>
+							<div class="input-group">
+								<span class="input-group-addon">$</span>
+								<input class="col col-lg-2" id="appendedPrependedInput" size="16" type="text">
+								<span class="input-group-addon">.00</span>
 							</div>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="appendedPrependedInput">Append with button</label>
 						<div class="controls">
-							<div class="input-append">
-								<input class="span2" id="appendedPrependedInput" size="16" type="text"><button class="btn" type="button">Go!</button>
+							<div class="input-group">
+								<input class="col col-lg-2" id="appendedPrependedInput" size="16" type="text">
+								<div class="input-group-btn">
+									<button class="btn" type="button">Go!</button>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="appendedInputButtons">Two-button append</label>
 						<div class="controls">
-							<div class="input-append">
-								<input class="span2" id="appendedInputButtons" size="16" type="text"><button class="btn" type="button">Search</button><button class="btn" type="button">Options</button>
+							<div class="input-group">
+								<input class="col col-lg-2" id="appendedInputButtons" size="16" type="text">
+								<div class="input-group-btn">
+									<button class="btn" type="button">Search</button><button class="btn" type="button">Options</button>
+								</div>
 							</div>
 							</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="inlineCheckboxes">Inline checkboxes</label>
 						<div class="controls">
-							<label class="checkbox inline">
+							<label class="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox1" value="option1"> 1
 							</label>
-							<label class="checkbox inline">
+							<label class="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox2" value="option2"> 2
 							</label>
-							<label class="checkbox inline">
+							<label class="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
 							</label>
 						</div>
@@ -552,34 +532,34 @@
 					<?php echo $this->Form->input(uniqid(), array(
 						'label' => 'Prepended text',
 						'type' => 'text',
-						'class' => 'span2',
+						'class' => 'col col-lg-2',
 						'prepend' => '@',
 						'helpBlock' => 'Here\'s some help text',
 					)); ?>
 					<?php echo $this->Form->input(uniqid(), array(
 						'label' => 'Appended text',
 						'type' => 'text',
-						'class' => 'span2',
+						'class' => 'col col-lg-2',
 						'append' => '.00',
 						'helpInline' => 'Here\'s more help text',
 					)); ?>
 					<?php echo $this->Form->input(uniqid(), array(
 						'label' => 'Append and prepend',
 						'type' => 'text',
-						'class' => 'span2',
+						'class' => 'col col-lg-2',
 						'prepend' => '$',
 						'append' => '.00',
 					)); ?>
 					<?php echo $this->Form->input(uniqid(), array(
 						'label' => 'Append with button',
 						'type' => 'text',
-						'class' => 'span2',
+						'class' => 'col col-lg-2',
 						'append' => array('Go!', array('wrap' => 'button', 'class' => 'btn')),
 					)); ?>
 					<?php echo $this->Form->input(uniqid(), array(
 						'label' => 'Two-button append',
 						'type' => 'text',
-						'class' => 'span2',
+						'class' => 'col col-lg-2',
 						'append' => array(
 							array('Search', array('wrap' => 'button', 'class' => 'btn')),
 							array('Options', array('wrap' => 'button', 'class' => 'btn')),
@@ -621,7 +601,7 @@
 			<?php echo $this->Form->end(); ?>
 
 		</div>
-		<div class="span4">
+		<div class="col col-lg-4">
 			<h3>Prepend &amp; append inputs</h3>
 			<p>Input groups—with appended or prepended text—provide an easy way to give more context for your inputs. Great examples include the @ sign for Twitter usernames or $ for finances.</p>
 			<hr>
@@ -668,7 +648,7 @@
 <section id="button">
 	<h2>Buttons</h2>
 	<div class="row">
-		<div class="span4">
+		<div class="col col-lg-4">
 			<div class="btn-toolbar" style="margin-bottom: 9px">
 				<div class="btn-group">
 					<?php echo $this->Html->link(null, '#', array('class' => 'btn', 'icon' => 'align-left')); ?>
@@ -699,17 +679,44 @@
 				<?php echo $this->Html->link('More Info', '#', array('class' => 'btn btn-small btn-info', 'icon' => 'info-sign white')); ?>
 			</p>
 		</div>
-		<div class="span4">
+		<div class="col col-lg-4">
 			<div class="well" style="padding: 8px 0;">
-				<ul class="nav nav-list">
+				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><?php echo $this->Html->link('Home', '#', array('icon' => 'home white')); ?></li>
 					<li><?php echo $this->Html->link('Library', '#', array('icon' => 'book')); ?></li>
 					<li><?php echo $this->Html->link('Applications', '#', array('icon' => 'pencil')); ?></li>
 				</ul>
 			</div> <!-- /well -->
 		</div>
-		<div class="span4">
-			<?php echo $this->Form->input('text', array('class' => 'span2', 'label' => 'Email address', 'prepend' => $this->Html->icon('envelope'))); ?>
+		<div class="col col-lg-4">
+			<?php echo $this->Form->input('text', array('class' => 'col col-lg-2', 'label' => 'Email address', 'prepend' => $this->Html->icon('envelope'))); ?>
 		</div>
+	</div>
+
+	<div class="row">
+		<div class="col col-lg-4">
+			<h2>List-groups</h2>
+			<?php
+				echo $this->Html->listGroup(array(
+					'Cras justo odio',
+					'Dapibus ac facilisis in',
+					'Morbi leo risus',
+					'Porta ac consectetur ac',
+					'Vestibulum at eros'
+				));
+			?>
+		</div>
+		<div class="col col-lg-8">
+			<h2>List-groups</h2>
+			<?php
+				echo $this->Html->listGroup(array(
+					array('Cras justo odio', 'badge' => 10, 'wrapperOptions' => array('class' => 'active')),
+					array('Dapibus ac facilisis in', 'chevron' => true),
+					array('Morbi leo risus', 'badge' => 15, 'chevron' => true),
+					array('Porta ac consectetur ac', 'url' => '#'),
+					array('Vestibulum at eros', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet fringilla eleifend. Nunc condimentum, mauris et dapibus sagittis, augue tortor ultrices eros, eget commodo odio ligula eu lorem. Morbi pharetra diam sem. Quisque non placerat erat. Etiam ut nisi nisl, in semper lorem. Pellentesque ligula nulla, porta sit amet tincidunt eget, porttitor vel lacus. Praesent dolor nisl, feugiat non cursus eget, placerat aliquam odio. Proin consectetur semper elementum.') 
+				));
+			?>
+		</div>		
 	</div>
 </section>

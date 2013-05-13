@@ -5,7 +5,7 @@ class BootstrapPaginatorHelper extends PaginatorHelper {
 
 	public function pagination($options = array()) {
 		$default = array(
-			'div' => 'pagination pagination-centered'
+			'div' => 'pagination'
 		);
 
 		$pagingParams = reset($this->request->params['paging']);
@@ -36,7 +36,7 @@ class BootstrapPaginatorHelper extends PaginatorHelper {
 				$out[] = $this->{$unit}(null, $options);
 			}
 		}
-		return $this->Html->div($class, $this->Html->tag('ul', implode("\n", $out)));
+		return $this->Html->tag('ul', implode("\n", $out), array('class' => $class));
 	}
 
 	public function pager($options = array()) {
