@@ -81,11 +81,16 @@ class BootstrapFormHelper extends FormHelper {
 	}
 
 	public function checkbox($fieldName, $options = array()) {
-		$label = $this->_extractOption('label', $this->_Opts[$fieldName]);
-		if (!is_array($label)) {
-			$label = array('text' => $label);
+		if (isset($this->_Opts[$fieldName])) {
+			$label = $this->_extractOption('label', $this->_Opts[$fieldName]);
+			if (!is_array($label)) {
+				$label = array('text' => $label);
+			}
+			$after = $this->_extractOption('after', $this->_Opts[$fieldName]);
+		} else {
+			$label = array('text' => false);
+			$after = '';
 		}
-		$after = $this->_extractOption('after', $this->_Opts[$fieldName]);
 
 		if ($this->_isHorizontal) {
 			$label['text'] = $after;
